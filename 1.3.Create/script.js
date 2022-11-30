@@ -21,30 +21,35 @@ function randomizelist(list){
     return randomlist  
 }
 
-/* exo*/
+
+  function getTextColor(rgb) 
+  {
+      rgb = rgb.match(/\d+/g);
+      if ((rgb[0] * 0.299) + (rgb[1] * 0.587) + (rgb[2] * 0.114) > 150) {
+          return 'black';
+      } else {
+          return 'white';
+      }
+  }  
+
 function create(list){
     Keller5=randomizelist(list)
     i=0
     for (elem of Keller5){
         learner_elem = document.createElement("section");
-        learner_elem.style.backgroundColor= randomcolor();
+        backgroundcolor=randomcolor()
+        learner_elem.style.backgroundColor= backgroundcolor;
         para=document.createElement("p")
         para.innerText=elem
+        para.style.color=getTextColor(backgroundcolor)
         document.getElementsByTagName('article')[0].appendChild(learner_elem);
         document.getElementsByTagName('section')[i].appendChild(para)
-        i++
-        /*
-        if((red*0.299 + green*0.587 + blue*0.114) > 186){
-            para.style.color= "white"
-        }
-        else{
-            para.style.color="black"
-        }
-        */
+        i++      
     }
 }
 
 create(Keller5)
+
 
 
 
