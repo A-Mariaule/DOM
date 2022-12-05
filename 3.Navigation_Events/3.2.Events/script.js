@@ -4,6 +4,7 @@ const getElapsedTime = () => {
   return Number((Date.now() - _initTime) / 1000).toFixed(2) + 's'
 }
 
+//fonction newsquare + log
 const clickOnSquare = (e) => {
   console.log(e.target.classList[1])
   console.log(getElapsedTime())
@@ -16,6 +17,12 @@ const clickOnSquare = (e) => {
   }
 }
 
+//fonction pour l'alertbox
+function click_generated_square(e){
+  alert(e.target.classList[1])
+}  
+
+// event square
 const actionSquares = document.querySelectorAll('.actionsquare')
 for (let actionSquare of actionSquares) {
   actionSquare.addEventListener('click', clickOnSquare)
@@ -53,7 +60,7 @@ function newli_spacebar(color){
   li_log.textContent=" [ "+getElapsedTime()+" ] " +" The spacebar was used and the background-color is now "+ color
 }
 
-//event body
+
 //génère une couleur aléatoire
 function randomcolor(){
   r=Math.floor(Math.random()*256)
@@ -63,6 +70,7 @@ function randomcolor(){
   return color
 }
 
+//event body
 document.body.addEventListener("keypress",keyboard);
 function keyboard(e){
   // change la couleur du background
